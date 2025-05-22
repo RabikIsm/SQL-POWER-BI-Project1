@@ -2,7 +2,6 @@
 Automated a previously manual process by developing a SQL script and an interactive Power BI dashboard to extract, analyze, and visualize sales data, resulting in improved efficiency and faster decision-making.
 
 
-Certainly! Here's a comprehensive summary of the process that led to building the **Sales Overview Power BI Dashboard**, structured as if it were part of a final project delivery or a report to stakeholders:
 
 ---
 
@@ -17,96 +16,86 @@ Before building the dashboard, the following key business questions guided the a
 5. **How do monthly sales trends compare to the budgeted amounts?**
 6. **Can sales performance be sliced by different filters like year, month, customer city, product category, etc.?**
 
-These questions were essential for understanding overall business health, customer value, product performance, and to enable strategic planning and decision-making.
+These questions were critical in driving data-driven decision-making and providing stakeholders with actionable insights.
 
 ---
 
 ## 🧩 **Steps Taken in Building the Analysis**
 
-### 1. **Data Collection and Cleaning**
+### 1. **Data Preparation with SQL**
 
-* Imported sales, customer, and product data into Power BI.
-* Verified data quality: ensured there were no missing values in critical columns like sales amount, product name, or dates.
-* Formatted columns (e.g., converting text to category types, ensuring proper date formatting).
+* Before importing data into Power BI, I used **SQL queries** to:
 
-### 2. **Data Modeling**
+  * Filter and clean the raw data.
+  * Join relevant tables (e.g., sales, customers, products).
+  * Pre-aggregate some metrics to improve performance in Power BI.
+  * Exclude unnecessary columns or records, ensuring a focused dataset.
 
-* Established relationships between relevant tables:
-  For example:
+This SQL layer ensured that the data model imported into Power BI was clean, efficient, and ready for analysis.
 
-  * `Sales Table` → `Products Table` (ProductID)
-  * `Sales Table` → `Customer Table` (CustomerID)
-* Created necessary calculated columns and measures using **DAX**, such as:
+### 2. **Data Modeling in Power BI**
 
-  * Total Sales = `SUM(Sales[Amount])`
-  * Budget Difference = `Sales - Budget`
-  * Yearly/Monthly comparisons
-  * Cumulative totals
+* Established relationships between tables using primary/foreign keys.
+* Built a star schema model with fact and dimension tables.
+* Created custom **DAX measures** for:
+
+  * Total Sales
+  * Budget vs. Actual Comparison
+  * Monthly Trends
+  * Top Customer/Product Analysis
 
 ### 3. **Designing Visualizations**
 
-Each visualization answered a specific business question:
+Each visual answered a core business question:
 
-* **KPI Card:** Displays total sales (22,239,730) vs. budget and highlights variance with a green upward indicator.
-* **Pie Chart (Sales by Product Category):** Quickly shows that **Bikes** dominate sales (95.32%).
-* **Bar Chart (Sales by Subcategory):** Highlights top-performing subcategories like Road and Mountain Bikes.
-* **Line Chart:** Shows monthly trend comparison between actual sales and budgeted amounts.
-* **Bar Chart (Top 10 Customers):** Identifies key customers contributing to revenue.
-* **Bar Chart (Top 10 Products):** Reveals top-selling individual products.
+* **KPI Card:** Total sales vs. budget with variance and growth indicator.
+* **Donut Chart:** Sales distribution by product category.
+* **Bar Chart:** Subcategory sales breakdown (e.g., Road Bikes, Mountain Bikes).
+* **Line Chart:** Monthly sales vs. budget comparison.
+* **Top 10 Customer/Product Charts:** Identify key revenue contributors.
 
-### 4. **Adding Slicers (Interactive Filters)**
+### 4. **Interactive Slicers**
 
-Slicers were added to allow dynamic filtering and self-service analytics:
+Slicers were added to empower user-driven insights:
 
-* **Year Slicer:** To view data for 2024 or 2025.
-* **Month Slicer:** To narrow down by specific months.
-* **Customer City Slicer:** To analyze performance by region or customer location.
-* **Product Category, Subcategory, and Product Name Slicers:** For in-depth product-level performance analysis.
+* 📅 **Year & Month Slicers:** Select specific timeframes.
+* 🌆 **Customer City Slicer:** Regional performance analysis.
+* 🛍️ **Product Category / Subcategory / Product Name Slicers:** Drill down into product-level performance.
 
-Slicers make the dashboard interactive, user-friendly, and adaptable for different stakeholders.
+Slicers enhanced user interactivity, making the dashboard dynamic and customizable for different stakeholder needs.
 
 ---
 
 ## 📊 **Key Insights & Takeaways**
 
-1. **Overall Performance Exceeded Budget:**
+1. **Exceeded Sales Target:**
 
-   * Sales = 22.2M vs Budget = 21.1M → **\$1.14M over target**
+   * Actual Sales = 22.2M vs Budget = 21.1M → **\$1.14M above target**
 
-2. **Product Focus:**
+2. **Dominant Product Focus:**
 
-   * **Bikes** are the core driver of sales. Accessories and clothing contribute marginally.
+   * **Bikes** generate 95%+ of sales — a clear product strength.
 
-3. **Top Performing Subcategories:**
+3. **Top Subcategories:**
 
-   * Road Bikes and Mountain Bikes dominate, with 8.8M and 8.6M respectively.
+   * Road Bikes and Mountain Bikes together account for the majority of sales.
 
-4. **Customer Analysis:**
+4. **Customer Value:**
 
-   * Jordan Turner is the top customer with 16K in purchases.
-   * Understanding customer concentration helps target retention strategies.
+   * Jordan Turner is the highest value customer with 16K in purchases.
 
-5. **Sales Seasonality:**
+5. **Seasonality Insight:**
 
-   * Spikes in **May** and **June**, suggesting seasonal peaks or promotional periods.
+   * May and June show peak sales — ideal for future promotions.
 
-6. **Product Strategy:**
+6. **Product Performance:**
 
-   * All top-selling products are Mountain or Road Bikes → opportunity to upsell accessories or cross-sell lesser-performing categories.
+   * Mountain and Road Bikes dominate top product sales; room to promote accessories and clothing.
 
 ---
 
 ## 🧠 **Final Thoughts**
 
-This Power BI dashboard provides a **clear, concise, and interactive** view of the sales performance. It helps business users:
+The completed Power BI dashboard delivers a **comprehensive, interactive, and executive-ready** view of sales performance. By combining **SQL pre-processing** with powerful **Power BI visualizations**, I ensured the solution was both accurate and responsive.
 
-* Make data-driven decisions
-* Track KPIs in real-time
-* Focus marketing and sales strategies on high-performing products and customers
-
-Next steps could include integrating **forecasting models**, **profit margin analysis**, or **geospatial maps** to further enrich the dashboard.
-
----
-
-Would you like a downloadable PDF summary of this or help generating a presentation version of it?
-
+This dashboard serves as a critical tool for tracking KPIs, identifying opportunities, and aligning sales strategy with real data.
